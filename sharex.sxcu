@@ -1,0 +1,8 @@
+{
+  "Name": "filehost by file.coffee",
+  "RequestType": "POST",
+  "RequestURL": "http://your-server-ip:3000/upload",
+  "FileFormName": "file",
+  "ResponseType": "Text",
+  "URL": "$json:url$"
+}

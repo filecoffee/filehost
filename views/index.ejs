@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filehost by file.coffee</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <div class="min-h-screen flex flex-col items-center justify-center p-6">
+        <header class="mb-12 text-center">
+            <h1 class="text-5xl font-extrabold mb-4">filehost</h1>
+            <p class="text-lg">by the creators of <a href="https://file.coffee" class="text-blue-400 hover:text-blue-600 transition duration-300">file.coffee</a>.</p>
+        </header>
+        <main class="w-full max-w-2xl bg-gray-800 p-8 rounded-lg shadow-lg">
+            <section class="mb-8">
+                <h2 class="text-3xl font-semibold mb-4 border-b border-gray-700 pb-2">Statistics</h2>
+                <div class="flex justify-between items-center mb-2">
+                    <span>Total uploads:</span>
+                    <span class="font-mono text-xl"><%= totalUploads %></span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span>Total size:</span>
+                    <span class="font-mono text-xl"><%= totalSize %> MB</span>
+                </div>
+            </section>
+            <section>
+                <h2 class="text-3xl font-semibold mb-4 border-b border-gray-700 pb-2">Contact</h2>
+                <p>Contact the hoster: <a href="mailto:<%= hosterEmail %>" class="text-blue-400 hover:text-blue-600 transition duration-300"><%= hosterEmail %></a></p>
+            </section>
+        </main>
+        <footer class="mt-12 text-center">
+            <p>Want to host it yourself? <a href="https://github.com/filecoffee/filehost/tree/main" class="text-blue-400 hover:text-blue-600 transition duration-300">GitHub Repository</a></p>
+        </footer>
+    </div>
+</body>
+</html>
