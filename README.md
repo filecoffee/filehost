@@ -3,3 +3,6 @@ An open source file host that you can easily selfhost. Made by the creators of f
 
 ## Simply start your own file host
 filehost is a one-click (or one-command) setup file host that you can deploy wherever you want. Full control over your own data. No limits
+
+## Note
+It's currently a big work in progress. But stay patient, something you can deploy will be ready a.s.a.p.
