@@ -5,16 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>filehost by file.coffee</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-gray-custom {
+            background-color: #181818;
+        }
+        .coffee-color {
+            color: #C084FC;
+        }
+
+        .bg-coffee-color {
+            background-color: #C084FC;
+        }
+    </style>
 </head>
-<body class="bg-gray-900 text-gray-100">
+<body class="bg-gray-custom text-gray-100">
     <div class="min-h-screen flex flex-col items-center justify-center p-6">
         <header class="mb-12 text-center">
-            <h1 class="text-5xl font-extrabold mb-4">filehost</h1>
-            <p class="text-lg">by the creators of <a href="https://file.coffee" class="text-blue-400 hover:text-blue-600 transition duration-300">file.coffee</a>.</p>
+            <h1 class="text-5xl font-extrabold mb-4">Truly <i>your</i> <u class="coffee-color">filehost</u></h1>
+            <p class="text-lg">Free, open-source, safe, filehosting.</p>
         </header>
-        <main class="w-full max-w-2xl bg-gray-800 p-8 rounded-lg shadow-lg">
+        <main class="w-full max-w-2xl bg-coffee-color p-8 rounded-lg shadow-lg">
             <section class="mb-8">
-                <h2 class="text-3xl font-semibold mb-4 border-b border-gray-700 pb-2">Statistics</h2>
+                <h2 class="text-3xl font-semibold mb-4 border-b border-white pb-2">Statistics</h2>
                 <div class="flex justify-between items-center mb-2">
                     <span>Total uploads:</span>
                     <span class="font-mono text-xl"><%= totalUploads %></span>
@@ -25,12 +37,12 @@
                 </div>
             </section>
             <section>
-                <h2 class="text-3xl font-semibold mb-4 border-b border-gray-700 pb-2">Contact</h2>
-                <p>Contact the hoster: <a href="mailto:<%= hosterEmail %>" class="text-blue-400 hover:text-blue-600 transition duration-300"><%= hosterEmail %></a></p>
+                <h2 class="text-3xl font-semibold mb-4 border-b border-white pb-2">Contact</h2>
+                <p>Contact the hoster: <a href="mailto:<%= hosterEmail %>" class="text-gray-900 hover:text-gray-800 transition duration-300"><%= hosterEmail %></a></p>
             </section>
         </main>
         <footer class="mt-12 text-center">
-            <p>Want to host it yourself? <a href="https://github.com/filecoffee/filehost/tree/main" class="text-blue-400 hover:text-blue-600 transition duration-300">GitHub Repository</a></p>
+            <p>Want to host it yourself? <a href="https://github.com/filecoffee/filehost/tree/main" class="coffee-color">GitHub Repository</a></p>
         </footer>
     </div>
 </body>
