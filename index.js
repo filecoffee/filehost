@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const ejs = require("ejs");
-const fileRoutes = require("./routes/fileRoutes");
+const fileRoutes = require("./routes/file.routes");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -13,22 +13,6 @@ let totalUploads = 0;
 let totalSize = 0;
 
 app.set("view engine", "ejs");
-
-const authenticate = (req, res, next) => {
-  const apiKey = req.headers["x-api-key"];
-  if (!apiKey || !apiKeys.includes(apiKey)) {
-    if (allowPublicUploads) {
-      req.isPublicUpload = true;
-      next();
-    } else {
-      return res.status(403).json({ error: "Forbidden" });
-    }
-  } else {
-    next();
-  }
-};
-
-app.use(authenticate);
 app.use(fileRoutes);
 
 app.get("/", (req, res) => {
