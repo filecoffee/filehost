@@ -15,6 +15,18 @@ if (!fs.existsSync(uploadPath)) {
   fs.mkdirSync(uploadPath);
 }
 
+/**
+ * Ensure we clean up the uploads directory after each test
+ */
+afterEach(() => {
+  const files = fs.readdirSync(uploadPath);
+  files.forEach((file) => {
+    if (file !== "test.txt" && file !== ".gitkeep") {
+      fs.unlinkSync(path.join(uploadPath, file));
+    }
+  });
+});
+
 const storageEngine = initializeLocalStorage(
   multerOptions,
   fileNameLength,
