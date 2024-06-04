@@ -4,7 +4,7 @@ const ejs = require("ejs");
 const fileRoutes = require("./routes/file.routes");
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3000;
 const apiKeys = process.env.API_KEYS.split(",");
 const allowPublicUploads = process.env.ALLOW_PUBLIC_UPLOADS === "true";
 const hosterEmail = process.env.HOSTER_EMAIL;

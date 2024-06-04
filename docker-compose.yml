@@ -1,0 +1,13 @@
+services:
+  app:
+    container_name: filehost
+    build: .
+    ports:
+      - "${PORT}:${PORT}"
+    volumes:
+      - .:/usr/src/app
+      - ./uploads:/usr/src/app/uploads
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: development
