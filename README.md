@@ -4,7 +4,13 @@ An open source file host that you can easily selfhost. Made by the creators of f
 ![https://raw.githubusercontent.com/filecoffee/filehost/main/assets/git/homepage.png](https://raw.githubusercontent.com/filecoffee/filehost/main/assets/git/homepage.png)
 
 ## Simply start your own file host
-filehost is a one-click (or one-command) setup file host that you can deploy wherever you want. Full control over your own data. No limits
+filehost is a one-click (or one-command) setup file host that you can deploy wherever you want. Full control over your own data. No limits.
+
+Simply run `docker-compose up --build -d` on your server after you've configured the `.env` and it's all up and running.
+
+```
+Note: We're still actively working on the product and is currently in early alpha stages. We currently recommend also making a backup or chosing S3 as a host with the project.
+```
 
 ## Roadmap
 - [x] File uploads
