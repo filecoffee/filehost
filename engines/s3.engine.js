@@ -4,7 +4,14 @@ const AWS = require("aws-sdk");
 const { nanoid } = require("nanoid");
 
 const initializeS3Storage = (multerOptions, fileNameLength, s3Config) => {
-  const s3 = new AWS.S3(s3Config);
+  const s3 = new AWS.S3({
+    accessKeyId: s3Config.accessKeyId,
+    secretAccessKey: s3Config.secretAccessKey,
+    endpoint: s3Config.endpoint,
+    s3ForcePathStyle: true,
+    signatureVersion: "v4",
+  });
+
   const storage = multer.memoryStorage();
   const upload = multer({ storage: storage, ...multerOptions });
 

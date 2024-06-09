@@ -24,6 +24,7 @@ if (storageMode === "local") {
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
     region: process.env.AWS_REGION,
     bucketName: process.env.S3_BUCKET_NAME,
+    endpoint: process.env.S3_ENDPOINT,
   };
   storageEngine = initializeS3Storage(multerOptions, fileNameLength, s3Config);
 } else {
