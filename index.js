@@ -43,10 +43,10 @@ app.get("/", async (req, res) => {
     throw new Error("Invalid STORAGE_MODE");
   }
 
-  const { uploads, size } = await storageEngine.gatherStatistics();
+  const { totalUploads, totalSize } = await storageEngine.gatherStatistics();
   res.render("index", {
-    totalUploads: uploads,
-    totalSize: size.toFixed(2),
+    totalUploads: totalUploads,
+    totalSize: totalSize,
     hosterEmail: hosterEmail,
   });
 });
