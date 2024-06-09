@@ -12,6 +12,8 @@ Simply run `docker-compose up --build -d` on your server after you've configured
 Note: We're still actively working on the product and is currently in early alpha stages. We currently recommend also making a backup or chosing S3 as a host with the project.
 ```
 
+We also recommend forking the project and deploying your forked version to avoid issues when we push updates. You can then easily merge the changes in your forked version.
+
 ## Roadmap
 - [x] File uploads
 - [x] Retrieving files
