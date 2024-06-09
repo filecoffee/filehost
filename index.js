@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const ejs = require("ejs");
 const fileRoutes = require("./routes/file.routes");
+const helmet = require("helmet");
 
 const app = express();
 const port = 3000;
@@ -14,6 +15,7 @@ let totalSize = 0;
 
 app.set("view engine", "ejs");
 app.use(fileRoutes);
+app.use(helmet());
 
 app.get("/", (req, res) => {
   res.render("index", {
