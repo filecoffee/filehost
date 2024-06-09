@@ -5,7 +5,7 @@ const fileRoutes = require("./routes/file.routes");
 const helmet = require("helmet");
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 const apiKeys = process.env.API_KEYS.split(",");
 const allowPublicUploads = process.env.ALLOW_PUBLIC_UPLOADS === "true";
 const hosterEmail = process.env.HOSTER_EMAIL;
