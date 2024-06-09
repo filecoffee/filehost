@@ -13,6 +13,7 @@ app.use(helmet());
 
 const s3 = require("./engines/s3.engine");
 const local = require("./engines/local.engine");
+const storageMode = process.env.STORAGE_MODE || "local";
 
 app.get("/", async (req, res) => {
   let storageEngine;
