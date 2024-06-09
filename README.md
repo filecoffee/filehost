@@ -30,7 +30,7 @@ We also recommend forking the project and deploying your forked version to avoid
 - [x] Allow public uploads
 - [x] Basic API keys
 - [ ] Whitelisting file types
-- [ ] User authentication
+- [ ] User authentication <-- Currently in development
 - [ ] File deletion
 - [ ] File expiration
 - [ ] File management
