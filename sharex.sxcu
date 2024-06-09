@@ -1,8 +1,12 @@
 {
+  "Version": "13.7.0",
   "Name": "filehost by file.coffee",
-  "RequestType": "POST",
-  "RequestURL": "http://your-server-ip:3000/upload",
+  "DestinationType": "ImageUploader",
+  "RequestMethod": "POST",
+  "RequestURL": "http://example.com/upload?api=YOUR_API_KEY",
+  "Body": "MultipartFormData",
   "FileFormName": "file",
-  "ResponseType": "Text",
-  "URL": "$json:url$"
+  "URL": "$json:url$",
+  "ThumbnailURL": "$json:thumb_url$",
+  "DeletionURL": "$json:delete_url$"
 }
