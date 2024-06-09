@@ -49,7 +49,7 @@ app.get("/", async (req, res) => {
 
   res.render("index", {
     totalUploads: totalUploads,
-    totalSize: kbToMB,
+    totalSize: kbToMB.toFixed(2),
     hosterEmail: hosterEmail,
   });
 });
