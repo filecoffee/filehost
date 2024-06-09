@@ -44,9 +44,12 @@ app.get("/", async (req, res) => {
   }
 
   const { totalUploads, totalSize } = await storageEngine.gatherStatistics();
+
+  const kbToMB = totalSize / 1024 / 1024;
+
   res.render("index", {
     totalUploads: totalUploads,
-    totalSize: totalSize,
+    totalSize: kbToMB,
     hosterEmail: hosterEmail,
   });
 });
