@@ -3,6 +3,8 @@ const express = require("express");
 const fileRoutes = require("./routes/file.routes");
 const helmet = require("helmet");
 
+const { version } = require("./config/version.config");
+
 const app = express();
 const port = process.env.PORT;
 const hosterEmail = process.env.HOSTER_EMAIL;
@@ -51,6 +53,7 @@ app.get("/", async (req, res) => {
     totalUploads: totalUploads,
     totalSize: kbToMB.toFixed(2),
     hosterEmail: hosterEmail,
+    version: version,
   });
 });
 
