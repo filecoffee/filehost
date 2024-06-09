@@ -3,8 +3,11 @@ const { uploadFile, getFile } = require("../controllers/file.controller");
 
 const router = express.Router();
 
+const apiKeys = process.env.API_KEYS.split(",");
+const allowPublicUploads = process.env.ALLOW_PUBLIC;
+
 const authenticate = (req, res, next) => {
-  const apiKey = req.headers["x-api-key"];
+  const apiKey = req.headers["x-api-key"] || req.query.api;
   if (!apiKey || !apiKeys.includes(apiKey)) {
     if (allowPublicUploads) {
       req.isPublicUpload = true;
