@@ -23,4 +23,10 @@ const authenticate = (req, res, next) => {
 router.post("/upload", authenticate, uploadFile);
 router.get("/u/:filename", getFile);
 
+router.get("/files", async (req, res) => {
+  const userId = req.session.userId;
+  const files = await File.findAll({ where: { userId } });
+  res.render("files", { files });
+});
+
 module.exports = router;

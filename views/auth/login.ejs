@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-gray-custom { background-color: #181818; }
+        .coffee-color { color: #C084FC; }
+        .bg-coffee-color { background-color: #C084FC; }
+    </style>
+</head>
+<body class="bg-gray-custom text-gray-100">
+    <div class="min-h-screen flex flex-col items-center justify-center p-6">
+        <header class="mb-12 text-center">
+            <h1 class="text-5xl font-extrabold mb-4">Login</h1>
+        </header>
+        <main class="w-full max-w-md bg-coffee-color p-8 rounded-lg shadow-lg">
+            <form action="/login" method="POST">
+                <div class="mb-4">
+                    <label for="username" class="block text-sm font-medium">Username</label>
+                    <input type="text" name="username" id="username" class="w-full p-2 mt-1 rounded">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-sm font-medium">Password</label>
+                    <input type="password" name="password" id="password" class="w-full p-2 mt-1 rounded">
+                </div>
+                <button type="submit" class="w-full bg-gray-900 text-white p-2 rounded">Login</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
