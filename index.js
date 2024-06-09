@@ -15,6 +15,12 @@ const s3 = require("./engines/s3.engine");
 const local = require("./engines/local.engine");
 const storageMode = process.env.STORAGE_MODE || "local";
 
+// Todo: refactor this way.
+const fileNameLength = parseInt(process.env.FILE_NAME_LENGTH, 10) || 10;
+const multerOptions = {
+  limits: parseInt(process.env.FILE_MAX_SIZE_MB, 10) * 1024 * 1024,
+};
+
 app.get("/", async (req, res) => {
   let storageEngine;
 

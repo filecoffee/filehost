@@ -11,9 +11,6 @@ const fileNameLength = parseInt(process.env.FILE_NAME_LENGTH, 10) || 10;
 const multerOptions = {
   limits: parseInt(process.env.FILE_MAX_SIZE_MB, 10) * 1024 * 1024,
 };
-const publicMulterOptions = {
-  limits: parseInt(process.env.PUBLIC_UPLOAD_SIZE_LIMIT, 10) * 1024 * 1024,
-};
 
 let storageEngine;
 
