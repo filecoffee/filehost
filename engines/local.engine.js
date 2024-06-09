@@ -38,7 +38,22 @@ const initializeLocalStorage = (multerOptions, fileNameLength, uploadPath) => {
     });
   };
 
-  return { writeFile, findFile };
+  const gatherStatistics = () => {
+    let totalUploads = 0;
+    let totalSize = 0;
+
+    const files = fs.readdirSync(uploadPath);
+    files.forEach((file) => {
+      const filePath = path.join(uploadPath, file);
+      const stats = fs.statSync(filePath);
+      totalUploads++;
+      totalSize += stats.size;
+    });
+
+    return { totalUploads, totalSize };
+  };
+
+  return { writeFile, findFile, gatherStatistics };
 };
 
 module.exports = initializeLocalStorage;
