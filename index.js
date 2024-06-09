@@ -17,7 +17,8 @@ app.get("/", async (req, res) => {
       ? require("./engines/s3.engine")
       : require("./engines/local.engine");
 
-  const { uploads, size } = await engine.gatherStatistics();
+  const { gatherStatistics } = engine;
+  const { uploads, size } = await gatherStatistics();
   res.render("index", {
     totalUploads: uploads,
     totalSize: size.toFixed(2),
