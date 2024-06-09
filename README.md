@@ -6,6 +6,13 @@ An open source file host that you can easily selfhost. Made by the creators of f
 ## Simply start your own file host
 filehost is a one-click (or one-command) setup file host that you can deploy wherever you want. Full control over your own data. No limits.
 
+### Use Railway (one click)
+Hit the Railway button and have your filehost up and running in a few minutes. The button also supports the project since we get a small referral bonus.
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/pv_x6t?referralCode=QsZ-bg)
+
+
+### DIY - Docker!
 Simply run `docker-compose up --build -d` on your server after you've configured the `.env` and it's all up and running.
 
 ```
