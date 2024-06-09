@@ -62,8 +62,8 @@ const limiter = rateLimit({
 // Slow down middleware
 const speedLimiter = slowDown({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  delayAfter: 50, // Allow 50 requests per 15 minutes, then start slowing down responses
-  delayMs: 500, // Slow down subsequent responses by 500ms per request
+  delayAfter: 75, // Allow 75 fast requests per 15 minutes.
+  delayMs: (hits) => hits * 100, // Increase delay by 100ms for each request after 5 requests
 });
 
 app.use("/u/:filename", limiter, speedLimiter, getFile);
