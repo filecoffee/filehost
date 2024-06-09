@@ -57,8 +57,33 @@ const initializeS3Storage = (multerOptions, fileNameLength, s3Config) => {
       res.end();
     });
   };
+  const gatherStatistics = async () => {
+    let totalUploads = 0;
+    let totalSize = 0;
 
-  return { writeFile, findFile };
+    const listParams = {
+      Bucket: s3Config.bucketName,
+    };
+
+    const listObjects = async (params) => {
+      const data = await s3.listObjectsV2(params).promise();
+      data.Contents.forEach((item) => {
+        totalUploads++;
+        totalSize += item.Size;
+      });
+
+      if (data.IsTruncated) {
+        params.ContinuationToken = data.NextContinuationToken;
+        await listObjects(params);
+      }
+    };
+
+    await listObjects(listParams);
+
+    return { totalUploads, totalSize };
+  };
+
+  return { writeFile, findFile, gatherStatistics };
 };
 
 module.exports = initializeS3Storage;
