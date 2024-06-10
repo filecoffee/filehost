@@ -43,5 +43,8 @@ We also recommend forking the project and deploying your forked version to avoid
 - [ ] Advertising support
 - [ ] NSFW detection and filtering
 
+### S3 Compatible Storage
+For the s3 compatbile storage engine, we recommend using Contabo Object Storage. It's a cheap (2,50/mth for 250GB with unlimited bandwidth at 80mbps) and really easy to set up. Just make an account, get the object storage, make a bucket and fill in the details in the `.env` and it _just works_.
+
 ## Note
 It's currently a big work in progress. But stay patient, something you can deploy will be ready a.s.a.p.
