@@ -6,8 +6,8 @@ An open source file host that you can easily selfhost. Made by the creators of f
 ## Simply start your own file host 🚀
 filehost is a one-click (or one-command) setup file host that you can deploy wherever you want. Full control over your own data. No limits.
 
-### Use Railway (one-click) (W.i.p) 🚂
-Hit the Railway button and have your filehost up and running in a few minutes. The button also supports the project since we get a small referral bonus.
+### Use Railway (one-click) 🚂
+Hit the Railway button and have your filehost up and running in a few minutes. The button also supports the project since we get a small referral bonus. It costs (for a simple host) a few cents to a dollar per month to host it depending on the bandwidth. If you expect a lot of traffic, we highy recommend setting it up on your own server using Docker since that is a lot more cost efficient. This is just the easiest for a personal host.
 
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/pv_x6t?referralCode=QsZ-bg)
 
