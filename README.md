@@ -1,5 +1,5 @@
 # filehost 📁
-An open source file host that you can easily selfhost. Made by the creators of file.coffee.
+An open source file host that you can easily selfhost. Made by the creators of the original file.coffee that's now sunset.
 
 ![https://raw.githubusercontent.com/filecoffee/filehost/main/assets/git/homepage.png](https://raw.githubusercontent.com/filecoffee/filehost/main/assets/git/homepage.png)
 
