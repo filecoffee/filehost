@@ -36,7 +36,7 @@ if (storageMode === "local") {
 const uploadFile = (req, res) => {
   storageEngine.writeFile(req, res, () => {
     const fileHostDomain =
-      process.env.FILEHOST_DOMAIN || `${req.protocol}://${req.get("host")}`;
+      process.env.FILEHOST_DOMAIN || `https://${req.get("host")}`;
     res.status(200).json({
       message: "File uploaded successfully",
       url: `${fileHostDomain}/u/${req.filePath}`,
