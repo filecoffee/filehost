@@ -1,0 +1,13 @@
+services:
+  app:
+    container_name: filehost
+    image: ghcr.io/filecoffee/filehost:latest # or use a specific tag
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:${PORT}:${PORT}"
+    volumes:
+      - ./uploads:/usr/src/app/uploads
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production

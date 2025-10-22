@@ -13,7 +13,8 @@ Hit the Railway button and have your filehost up and running in a few minutes. T
 
 
 ### DIY - Docker! 🐳
-Simply run `docker-compose up --build -d` on your server after you've configured the `.env` and it's all up and running.
+Copy the `docker-compose.prod.yml`. 
+Simply run `docker compose -f .\docker-compose.prod.yml up` on your server after you've configured the `.env` and it's all up and running.
 
 ```
 Note: We're still actively working on the product and is currently in early alpha stages. We currently recommend also making a backup or chosing S3 as a host with the project.
