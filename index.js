@@ -10,8 +10,20 @@ const port = process.env.PORT;
 const hosterEmail = process.env.HOSTER_EMAIL;
 
 app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+      imgSrc: ["'self'", "data:", "https:"],
+      connectSrc: ["'self'"],
+      fontSrc: ["'self'", "https://cdn.jsdelivr.net"],
+    },
+  },
+}));
 app.use(fileRoutes);
-app.use(helmet());
 
 const s3 = require("./engines/s3.engine");
 const local = require("./engines/local.engine");
@@ -54,6 +66,23 @@ app.get("/", async (req, res) => {
     totalSize: kbToMB.toFixed(2),
     hosterEmail: hosterEmail,
     version: version,
+  });
+});
+
+const enableUploadPage = process.env.ENABLE_UPLOAD_PAGE === "true";
+
+app.get("/upload", (req, res) => {
+  if (!enableUploadPage) {
+    return res.status(404).send("Upload page is disabled.");
+  }
+  res.render("upload");
+});
+
+app.get("/api/config", (req, res) => {
+  res.json({
+    maxFileSize: parseInt(process.env.FILE_MAX_SIZE_MB, 10) * 1024 * 1024,
+    maxFileSizeMB: parseInt(process.env.FILE_MAX_SIZE_MB, 10),
+    fileNameLength: parseInt(process.env.FILE_NAME_LENGTH, 10) || 10,
   });
 });
 

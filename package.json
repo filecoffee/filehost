@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "dev": "node index.js",
     "test": "jest"
   },
   "jest": {

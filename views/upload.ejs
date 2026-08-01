@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload File - filehost by file.coffee</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-gray-custom {
+            background-color: #181818;
+        }
+        .coffee-color {
+            color: #C084FC;
+        }
+
+        .bg-coffee-color {
+            background-color: #C084FC;
+        }
+
+        .drag-area {
+            border: 2px dashed #C084FC;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .drag-area.drag-over {
+            background-color: rgba(192, 132, 252, 0.1);
+            border-color: #A855F7;
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .error-message {
+            background-color: #991B1B;
+            border: 1px solid #DC2626;
+            color: #FEE2E2;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message {
+            background-color: #065F46;
+            border: 1px solid #10B981;
+            color: #D1FAE5;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-custom text-gray-100">
+    <div class="min-h-screen flex flex-col items-center justify-center p-6">
+        <header class="mb-12 text-center">
+            <h1 class="text-5xl font-extrabold mb-4">Upload to <u class="coffee-color">filehost</u></h1>
+            <p class="text-lg">Select or drag and drop your file to upload</p>
+        </header>
+        
+        <main class="w-full max-w-2xl bg-coffee-color p-8 rounded-lg shadow-lg">
+            <div id="errorMessage" class="error-message"></div>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <div class="mb-6">
+                    <label class="block text-sm font-medium mb-2" for="apiKey">API Key (optional if public uploads enabled)</label>
+                    <input type="password" id="apiKey" name="apiKey" class="w-full px-3 py-2 bg-gray-700 text-white rounded-md border border-gray-600 focus:border-purple-400 focus:outline-none">
+                </div>
+                
+                <div class="mb-6">
+                    <div class="drag-area" id="dragArea">
+                        <svg class="mx-auto h-12 w-12 text-gray-300 mb-4" stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <p class="text-lg font-medium mb-4">Drop your file here or click below to browse</p>
+                        <button type="button" id="browseBtn" class="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition duration-300">
+                            Choose File
+                        </button>
+                        <p class="text-sm text-gray-300 mt-4">Maximum file size: <span id="maxSize">Check server configuration</span></p>
+                    </div>
+                    <input type="file" id="fileInput" name="file" class="file-input" required>
+                </div>
+                
+                <div class="mb-6" id="fileInfo" style="display: none;">
+                    <div class="bg-gray-700 p-4 rounded-md">
+                        <p class="text-sm"><strong>Selected file:</strong> <span id="fileName"></span></p>
+                        <p class="text-sm"><strong>Size:</strong> <span id="fileSize"></span></p>
+                    </div>
+                </div>
+                
+                <button type="submit" id="uploadBtn" class="w-full bg-gray-800 text-white py-3 px-4 rounded-md hover:bg-gray-700 transition duration-300 disabled:opacity-50" disabled>
+                    Upload File
+                </button>
+            </form>
+            
+            <div id="uploadProgress" class="mt-6" style="display: none;">
+                <div class="bg-gray-700 rounded-full h-2">
+                    <div id="progressBar" class="bg-purple-400 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+                </div>
+                <p class="text-sm mt-2 text-center" id="progressText">Uploading...</p>
+            </div>
+            
+            <div id="uploadResult" class="mt-6" style="display: none;">
+                <div class="bg-gray-700 p-4 rounded-md">
+                    <p class="text-sm mb-2"><strong>Upload successful!</strong></p>
+                    <p class="text-sm break-all"><strong>URL:</strong> <a id="fileUrl" href="#" target="_blank" class="text-purple-300 hover:text-purple-200"></a></p>
+                    <button id="copyBtn" class="mt-2 bg-purple-600 text-white py-1 px-3 rounded text-sm hover:bg-purple-500 transition duration-300">Copy URL</button>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="mt-12 text-center">
+            <a href="/" class="coffee-color hover:text-purple-300 transition duration-300">← Back to Home</a>
+        </footer>
+    </div>
+
+    <script src="/js/upload.js"></script>
+</body>
+</html>
